@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html ng-app="city-weather">
+<html ng-app="ig-test">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>city-weather</title>
+
     <!-- inject:vendor:css -->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
     <!-- endinject -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/city/city.css">
     <!-- endinject -->
   </head>
   <body>
-    <h1>city-weather</h1>
-    <h2>Your new AngularJS app is now ready...</h2>
-    <ng-view></ng-view>
+    <div class="container">
+      <div class="page-header">
+        <h1>city-weather</h1>
+      </div>
+
+      <section class="main row" ui-view></section>
+
+    </div>
+
     <!-- inject:vendor:js -->
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endinject -->
     <!-- inject:js -->
+    <script src="/city/city.js"></script>
+    <script src="/city/city-controller.js"></script>
+    <script src="/app.js"></script>
+    <script src="/city-weather-test-templates.js"></script>
     <!-- endinject -->
   </body>
 </html>

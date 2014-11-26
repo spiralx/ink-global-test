@@ -3,11 +3,12 @@
 function config($stateProvider) {
   $stateProvider
     .state('city', {
-      url: '/',
+      url: '/city',
+      templateUrl: 'city/city.html',
       views: {
-        itemView: {
-          templateUrl: 'views/items.html',
-          controller: 'ItemsController'
+        listView: {
+          templateUrl: 'city/city.list.html',
+          controller: 'CitiesListCtrl as citiesListCtrl'
         },
         basketView: {
           templateUrl: 'views/basket.html',
@@ -17,7 +18,26 @@ function config($stateProvider) {
     });
 }
 
+function CityService($http) {
+  var cachedData;
+
+  return {
+    getCities: getCities
+  };
+
+  function getCities() {
+    return $http.get({
+      method: 'GET',
+      url: 'city/city-data.json',
+      cache: true
+    });
+  }
+
+}
+
 
 angular
-  .module('city-weather.city', [])
+  .module('ig-test.city', [
+    'ui.router'
+  ])
   .config(config);
